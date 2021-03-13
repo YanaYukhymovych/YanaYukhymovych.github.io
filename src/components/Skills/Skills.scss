@@ -1,0 +1,118 @@
+@import "../../theme/variables";
+@import "../../theme/mixins";
+
+.skills {
+  width: 100%;
+
+  .skills__wrapper {
+    max-width: 940px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 50px;
+
+    @media (max-width: $mobile) {
+      padding: 20px;
+    }
+
+    .skills__title {
+      margin: 0;
+
+      @media (max-width: $mobile) {
+        margin-top: 30px;
+      }
+    }
+
+    .skills__progress {
+      margin-top: 50px;
+    }
+
+    .skills__programs {
+      margin-top: 50px;
+    }
+  }
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  width: 100%;
+
+  .progress__bar {
+    display: flex;
+    width: 100%;
+    background-color: rgba(130, 130, 130, 0.3);
+    margin: 5px 0;
+    border-radius: 25px;
+
+    .progress__fill {
+      display: flex;
+      width: 10%;
+      background-color: $black;
+      border-radius: 25px;
+      transition: width 1s linear;
+
+      &--html {
+        width: 95%;
+      }
+
+      &--css {
+        width: 85%;
+      }
+
+      &--script {
+        width: 35%;
+        min-width: 150px;
+      }
+
+      &--git {
+        width: 60%;
+      }
+
+      .progress__technologies {
+        display: flex;
+        width: 150px;
+        padding: 2px 15px;
+        color: $greylight;
+        background-color: #383838;
+        text-transform: uppercase;
+        border-radius: 25px;
+
+        @media (max-width: $mobile) {
+          font-size: 14px;
+          width: 110px;
+        }
+      }
+    }
+  }
+}
+
+.programs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+
+  .programs__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% / 5);
+    padding: 15px;
+
+    &--gulp {
+      padding-top: 5px;
+    }
+
+    .programs__logo {
+      margin-bottom: 20px;
+    }
+
+    .programs__title {
+      margin-top: auto;
+      margin-bottom: 0;
+    }
+  }
+}
