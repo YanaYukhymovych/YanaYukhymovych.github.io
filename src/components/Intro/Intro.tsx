@@ -25,7 +25,7 @@ const Intro = () => {
               srcSet={`${AuthorsPhoto2x} 2x, ${AuthorsPhoto3x} 3x`}
               width="550px"
               height="600px"
-              alt="Author's photo"
+              alt="Author"
             />
           </p>
         </div>

@@ -2,26 +2,31 @@ import React from 'react';
 import './Portfolio.scss';
 import { Arrow } from '../../assets';
 import Borodinskiy from '../../assets/img/borodinski.png';
-import Pink from '../../assets/img/pink.jpg';
-import TodoList from '../../assets/img/TodoList.png';
+import Pink from '../../assets/img/pink-white.png';
+import TodoList from '../../assets/img/Todo.png';
 
 const Portfolio = () => {
   const PortfolioItem = [
     {
-      icon: Borodinskiy,
-      description: 'Making a layout of multi-pages online-shop. Implementing sign up form with JS',
-      link: 'https://yanayukhymovych.github.io/barbershop-borodinski',
+      icon: TodoList,
+      description:
+        'Web application for creating and organised a tasks that you want to do.',
+      link: 'https://yanayukhymovych.github.io/react-learning-todo/',
+      stack: ['React', 'Redux', 'React Router', 'Scss'],
     },
     {
       icon: Pink,
-      description: 'Creating website for photo processing application. Making cross-platforms layout using Scss, implementing JS-slider',
+      description:
+        'Creating website for photo processing application. Making cross-platforms layout using Scss, implementing JS-slider.',
       link: 'https://yanayukhymovych.github.io/Pink',
+      stack: ['JavaScript', 'Html', 'Scss'],
     },
     {
-      icon: TodoList,
+      icon: Borodinskiy,
       description:
-        'Web application for creating and organised a tasks that you want to do. Made with ReactJS',
-      link: 'https://yanayukhymovych.github.io/react-learning-todo/',
+        'Making a layout of multi-pages online-shop. Implementing sign up form.',
+      link: 'https://yanayukhymovych.github.io/barbershop-borodinski',
+      stack: ['JavaScript', 'Html', 'Scss'],
     },
   ];
 
@@ -42,11 +47,21 @@ const Portfolio = () => {
                 />
               </a>
 
-              <p className="portfolio__description">{item.description}</p>
+              <p className="portfolio__description">
+                {item.description}
+                <p className="portfolio__stack">
+                  {item.stack.map((tech, index) => {
+                    return (
+                      <div className="stack__tech" key={index}>
+                        {tech}
+                      </div>
+                    );
+                  })}
+                </p>
+              </p>
             </div>
-          )
+          );
         })}
-
       </div>
     </section>
   );

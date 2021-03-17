@@ -1,16 +1,9 @@
 import React from 'react';
 import './Navigation.scss'
+import { Link } from 'react-scroll';
 
 const Navigation = () => {
-    const navLinks = [
-        { title: 'Home', link: '#home' },
-        { title: 'About me', link: '#about'},
-        { title: 'Skills', link: '#skills' },
-        { title: 'Portfolio', link: '#portfolio' },
-        { title: 'Contacts', link: '#contacts' }
-    ]
-
-
+    const navLinks = ['home', 'about', 'skills', 'portfolio', 'contacts'];
 
     return (
         <header className="header">
@@ -18,10 +11,16 @@ const Navigation = () => {
                 <ul className="navigation__list">
                     { navLinks.map(( item, index) => (
                         <li key={index}>
-                            <a className="navigation__link" href={item.link}>
-                                <span className="navigation__link--static">{item.title}</span>
-                                <span className="navigation__link--active">{item.title}</span>
-                            </a>
+                            <Link
+                              className="navigation__link"
+                              to={item} smooth={true}
+                              spy={true}
+                              activeClass="navigation__link--active"
+                              offset={-50}
+                            >
+                                <span className="navigation__link-text">{item}</span>
+                                <span className="navigation__link-text navigation__link-text--active">{item}</span>
+                            </Link>
                         </li>
                         )
                     )}

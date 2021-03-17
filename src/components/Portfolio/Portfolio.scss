@@ -1,5 +1,5 @@
-@import "../../theme/variables";
-@import "../../theme/mixins";
+@import '../../theme/variables';
+@import '../../theme/mixins';
 
 @keyframes link-arrow {
   0% {
@@ -69,27 +69,20 @@
     margin: 0 auto;
     padding: 50px;
 
-
     .portfolio__item {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      margin-top: 30px;
-
-
-      &:nth-child(2n) {
-        flex-direction: row-reverse;
-      }
-
+      margin-top: 50px;
 
       .portfolio__link {
         position: relative;
 
         img {
-          width: 350px;
-          height: 250px;
+          width: 395px;
+          height: 235px;
 
           @media (max-width: $tablet) {
             width: 100%;
@@ -146,15 +139,41 @@
         }
       }
 
+      &:nth-child(2n + 1) {
+        flex-direction: row-reverse;
+
+        .portfolio__arrow {
+          path {
+            fill: white;
+          }
+        }
+      }
 
       .portfolio__description {
-        width: 400px;
+        width: 395px;
+        text-align: justify;
         color: $grey;
-        margin-left: 30px;
+        margin: 0;
 
-        &:nth-child(2n) {
+        &:nth-child(2n + 1) {
           flex-direction: row-reverse;
-          margin-right: 30px;
+        }
+
+        .portfolio__stack {
+          display: flex;
+          margin-top: 30px;
+
+          .stack__tech {
+            display: flex;
+            border: 1px solid $grey;
+            padding: 5px;
+            color: $grey;
+            font-size: 14px;
+          }
+
+          .stack__tech:not(:first-child) {
+            margin-left: 10px;
+          }
         }
       }
     }
