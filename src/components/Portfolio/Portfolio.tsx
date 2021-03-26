@@ -12,21 +12,21 @@ const Portfolio = () => {
       description:
         'Web application for creating and organised a tasks that you want to do.',
       link: 'https://yanayukhymovych.github.io/react-learning-todo/',
-      stack: ['React', 'Redux', 'React Router', 'Scss'],
+      stack: ['React', 'Redux', 'React Router', 'SСSS'],
     },
     {
       icon: Pink,
       description:
         'Creating website for photo processing application. Making cross-platforms layout using Scss, implementing JS-slider.',
       link: 'https://yanayukhymovych.github.io/Pink',
-      stack: ['JavaScript', 'Html', 'Scss'],
+      stack: ['JavaScript', 'HTML', 'SCSS'],
     },
     {
       icon: Borodinskiy,
       description:
         'Making a layout of multi-pages online-shop. Implementing sign up form.',
       link: 'https://yanayukhymovych.github.io/barbershop-borodinski',
-      stack: ['JavaScript', 'Html', 'Scss'],
+      stack: ['JavaScript', 'HTML', 'SCSS'],
     },
   ];
 

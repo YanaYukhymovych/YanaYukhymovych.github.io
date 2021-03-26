@@ -1,76 +1,74 @@
-@import "../../theme/variables";
-@import "../../theme/mixins";
+@import '../../theme/variables';
+@import '../../theme/mixins';
 
 .intro {
+  margin: 0;
   width: 100%;
+  height: 100vh;
   background-color: white;
 
   @media (max-width: $tablet) {
-    height: 100vh;
+    height: auto;
   }
+
 
   .intro__wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     max-width: 940px;
+    min-height: 100vh;
     margin: 0 auto;
 
     @media (max-width: $tablet) {
       max-width: 100%;
-      height: 100vh;
       margin: 0;
+      min-height: auto;
     }
 
     .intro__title {
-      @include font(50px, 60px, 700, $black);
-      @include sizing('font-size', (320px: 30px, 699px: 40px, 1920px: 48px));
+      margin-top: 120px;
+      @include font(50px, 700, $black);
+      @include sizing(
+        'font-size',
+        (
+          320px: 30px,
+          699px: 40px,
+          1920px: 48px,
+        )
+      );
 
       @media (max-width: $tablet) {
         text-align: right;
         padding-right: 20px;
-        //font-size: 40px;
-        margin-top: 200px;
+        margin-top: 50px;
       }
     }
 
     .intro__description {
-      margin: 0;
+      margin: 0 0 10px 0;
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-
 
       @media (max-width: $tablet) {
         text-align: right;
         padding-right: 20px;
         text-shadow: none;
-        margin-top: -200px;
       }
     }
 
     .intro__photo {
-      width: 100%;
-      text-align: right;
-      vertical-align: bottom;
-      margin-top: 50px;
-      margin-bottom: 50px;
+      width: 550px;
+      height: auto;
+      margin-top: auto;
+      margin-left: auto;
 
       @media (max-width: $tablet) {
-        margin-top: 15px;
-        margin-bottom: 0;
+        margin-top: 30px;
       }
 
-      img {
-        @media (max-width: $tablet) {
-          width: 60%;
-          height: auto;
-
-          @media (max-width: $mobile) {
-            width: 100%;
-
-          }
-        }
-
-
+      @media (max-width: $mobile) {
+        width: 100vw;
+        height: auto;
       }
     }
   }

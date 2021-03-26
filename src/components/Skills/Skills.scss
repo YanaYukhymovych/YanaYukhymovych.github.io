@@ -2,22 +2,33 @@
 @import '../../theme/mixins';
 
 .skills {
+  display: flex;
+  justify-content: center;
+  align-content: center;
   width: 100%;
+  min-height: 100vh;
+
+  @media (max-width: $tablet) {
+    min-height: auto;
+  }
 
   .skills__wrapper {
     max-width: 940px;
+    min-width: 767px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin: 0 auto;
     padding: 50px;
 
     @media (max-width: $mobile) {
       padding: 20px;
+      min-width: 320px;
     }
 
     .skills__title {
-      margin: 0;
+      margin: 0 0 20px 0;
 
       @media (max-width: $mobile) {
         margin-top: 30px;
@@ -26,10 +37,10 @@
 
     .skills__progress {
       margin-top: 50px;
-    }
 
-    .skills__programs {
-      margin-top: 50px;
+      @media (max-width: $tablet) {
+        margin-top: 30px;
+      }
     }
   }
 }
@@ -43,19 +54,25 @@
 
   .progress__item {
     display: flex;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+
+
   }
 }
 
 .item {
   .item__icon {
+    @media (max-width: $tablet) {
+      width: 45px;
+      height: 45px;
+    }
   }
 
   .item__description {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: auto 0 0 10px;
+    margin: auto 0 0 15px;
 
     .item__title {
       color: $grey;
@@ -72,7 +89,6 @@
       display: flex;
       width: 100%;
       height: 5px;
-      //background-color: rgba(130, 130, 130, 0.3);
       background: $greylight;
       margin: 4px 0;
       border-radius: 25px;

@@ -1,15 +1,12 @@
-@import "./variables";
+@import './variables';
 
-@mixin font($font-size: 18px, $line-height: 22px,
-            $font-weight: medium, $color: $black) {
-  font-family: "Montserrat", Arial, sans-serif;
+@mixin font($font-size: 18px, $font-weight: medium, $color: $black) {
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: $font-size;
-  line-height: $line-height;
   font-style: normal;
   font-weight: $font-weight;
   color: $color;
 }
-
 
 /*===================
   Poly-fluid sizing
@@ -28,7 +25,7 @@ Remove an item from a list
   $newList: ();
   @for $i from 1 through length($list) {
     @if $i != $index {
-      $newList: append($newList, nth($list,$i), 'space');
+      $newList: append($newList, nth($list, $i), 'space');
     }
   }
   @return $newList;
@@ -46,7 +43,7 @@ Sort a SASS list
 @function list-sort($list) {
   $sortedlist: ();
   @while length($list) > 0 {
-    $value: nth($list,1);
+    $value: nth($list, 1);
     @each $item in $list {
       @if $item < $value {
         $value: $item;
@@ -71,7 +68,12 @@ Sort map by keys
   $keys: list-sort(map-keys($map));
   $sortedMap: ();
   @each $key in $keys {
-    $sortedMap: map-merge($sortedMap, ($key: map-get($map, $key)));
+    $sortedMap: map-merge(
+      $sortedMap,
+      (
+        $key: map-get($map, $key),
+      )
+    );
   }
   @return $sortedMap;
 }
@@ -92,19 +94,22 @@ font-size: linear-interpolation((320px: 18px, 768px: 26px));
     @error "linear-interpolation() $map must be exactly 2 values";
   }
   // The slope
-  $m: (map-get($map, nth($keys, 2)) - map-get($map, nth($keys, 1)))/(nth($keys, 2) - nth($keys,1));
+  $m: (map-get($map, nth($keys, 2)) - map-get($map, nth($keys, 1)))/ (nth(
+          $keys,
+          2
+        ) - nth($keys, 1));
 
   // The y-intercept
   $b: map-get($map, nth($keys, 1)) - $m * nth($keys, 1);
 
   // Determine if the sign should be positive or negative
-  $sign: "+";
+  $sign: '+';
   @if ($b < 0) {
-    $sign: "-";
+    $sign: '-';
     $b: abs($b);
   }
 
-  @return calc(#{$m*100}vw #{$sign} #{$b});
+  @return calc(#{$m * 100}vw #{$sign} #{$b});
 }
 
 /*
@@ -125,7 +130,7 @@ Note: mixin name changed from 'poly-fluid-sizing' to 'sizing'
 
   // Error if the number of breakpoints is < 2
   @if ($length < 2) {
-    @error "sizing() $map requires at least values"
+    @error "sizing() $map requires at least values";
   }
 
   // Sort the map by viewport width (key)
@@ -133,18 +138,23 @@ Note: mixin name changed from 'poly-fluid-sizing' to 'sizing'
   $keys: map-keys($map);
 
   // Minimum size
-  #{$property}: map-get($map, nth($keys,1));
+  #{$property}: map-get($map, nth($keys, 1));
 
   // Interpolated size through breakpoints
   @for $i from 1 through ($length - 1) {
-    @media (min-width:nth($keys,$i)) {
-      #{$property}: linear-interpolation((nth($keys,$i): map-get($map, nth($keys,$i)), nth($keys,($i+1)): map-get($map, nth($keys,($i + 1)))));
+    @media (min-width: nth($keys, $i)) {
+      #{$property}: linear-interpolation(
+        (
+          nth($keys, $i): map-get($map, nth($keys, $i)),
+          nth($keys, ($i + 1)): map-get($map, nth($keys, ($i + 1))),
+        )
+      );
     }
   }
 
   // Maximum size
-  @media (min-width:nth($keys,$length)) {
-    #{$property}: map-get($map, nth($keys,$length));
+  @media (min-width: nth($keys, $length)) {
+    #{$property}: map-get($map, nth($keys, $length));
   }
 }
 

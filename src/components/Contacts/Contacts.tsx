@@ -36,8 +36,8 @@ const Contacts = () => {
   ];
 
   return (
-    <div className="contacts__wrapper">
-      <div className="contacts">
+    <div className="contacts">
+      <div className="contacts__wrapper">
         <h2 className="contacts__title"> Contacts </h2>
         <p className="contacts__text">
           Want to know more or just chat?
@@ -70,28 +70,28 @@ const Contacts = () => {
           <input className="form__button" type="submit" value="Send message" />
         </form>
 
-        <div className="contacts__social social">
-          {socials.map((item, index) => (
-            <a className="social__link" href={item.link} key={index}>
-              {cloneElement(item.icon, {
-                width: 40,
-                height: 40,
-                className: 'svg__empty',
-              })}
-              {cloneElement(item.iconFilled, {
-                width: 40,
-                height: 40,
-                className: 'svg__fill',
-              })}
-            </a>
-          ))}
-        </div>
+          <div className="contacts__social social">
+            {socials.map((item, index) => (
+              <a className="social__link" href={item.link} key={index}>
+                {cloneElement(item.icon, {
+                  width: 40,
+                  height: 40,
+                  className: 'svg__empty',
+                })}
+                {cloneElement(item.iconFilled, {
+                  width: 40,
+                  height: 40,
+                  className: 'svg__fill',
+                })}
+              </a>
+            ))}
+          </div>
 
-        <p className="contacts__notes">
-          Find me on social
-          <br />
-          Yana Yukhymovych @2020
-        </p>
+          <p className="contacts__notes">
+            Find me on social
+            <br />
+            Yana Yukhymovych @2021
+          </p>
       </div>
     </div>
   );

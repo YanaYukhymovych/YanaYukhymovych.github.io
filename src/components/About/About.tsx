@@ -23,7 +23,7 @@ const About = () => {
     {
       icon: <SpeedIcon />,
       title: 'Dynamic',
-      description: "Websites don't have to be static, I love making pages come to life..",
+      description: "Websites don't have to be static, I love making pages come to life.",
     },
   ];
 
@@ -60,7 +60,9 @@ const About = () => {
 
         <a className="about__link" href="Yukhymovych Yana CV.pdf" download>
           Let's make something special
-          <div className="link">My CV</div>
+          <div className="link">
+            download CV
+          </div>
         </a>
       </div>
     </section>
