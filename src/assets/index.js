@@ -1,4 +1,5 @@
 export { ReactComponent as Arrow } from './svg/arrow.svg';
+export { ReactComponent as CloseBtn } from './svg/close-btn.svg';
 export { ReactComponent as CssIcon } from './svg/css.svg';
 export { ReactComponent as Facebook } from './svg/facebook.svg';
 export { ReactComponent as FacebookFill } from './svg/facebook-fill.svg';
@@ -13,6 +14,7 @@ export { ReactComponent as InstagramFill } from './svg/instagram-fill.svg';
 export { ReactComponent as JsIcon } from './svg/js.svg';
 export { ReactComponent as Linkedin } from './svg/linkedin.svg';
 export { ReactComponent as LinkedinFill } from './svg/linkedin-fill.svg';
+export { ReactComponent as MenuBtn} from './svg/menu-btn.svg';
 export { ReactComponent as ReactIcon } from './svg/react.svg';
 export { ReactComponent as ReduxIcon } from './svg/redux.svg';
 export { ReactComponent as ScssIcon } from './svg/scss.svg';
@@ -20,6 +22,7 @@ export { ReactComponent as SpeedIcon } from './svg/speed.svg';
 export { ReactComponent as TabletIcon } from './svg/tablet.svg';
 export { ReactComponent as Telegram } from './svg/telegram.svg';
 export { ReactComponent as TelegramFill } from './svg/telegram-fill.svg';
+
 
 
 

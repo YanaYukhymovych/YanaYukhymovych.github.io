@@ -10,7 +10,7 @@
   min-height: 100vh;
   background-color: $greylight;
 
-  @media (max-width: $tablet) {
+  @media (max-width: $mobile) {
     min-height: auto;
   }
 
@@ -174,11 +174,6 @@
     .features__img {
       z-index: 2;
       position: relative;
-
-      @media (max-width: $mobile) {
-        width: 60px;
-        height: 60px;
-      }
     }
 
     .features__title {

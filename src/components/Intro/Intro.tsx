@@ -12,14 +12,13 @@ const Intro = () => {
           Yana
           <br />
           Yukhymovych
+          <p className="intro__description">
+            Front-end developer
+            <br />
+            Kyiv, Ukraine
+            <br />
+          </p>
         </h1>
-
-        <p className="intro__description">
-          Front-end developer
-          <br />
-          Kyiv, Ukraine
-          <br />
-        </p>
 
         <img
           className="intro__photo"

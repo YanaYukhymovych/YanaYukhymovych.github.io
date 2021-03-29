@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navigation.scss';
 import { Link } from 'react-scroll';
+import { useWindowDimensions } from '../../utils';
+import { MenuBtn, CloseBtn } from "../../assets";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const { width } = useWindowDimensions();
 
   const onMenuOpen = () => {
     setIsMenuOpen(true);
@@ -13,21 +16,28 @@ const Navigation = () => {
     setIsMenuOpen(false);
   };
 
-  console.log(isMenuOpen);
-
   const navLinks = ['home', 'about', 'skills', 'portfolio', 'contacts'];
 
+  useEffect(() => {
+    if (width > 1024 && isMenuOpen) {
+      setIsMenuOpen(false)
+    }
+  }, [width, isMenuOpen])
+
   return (
-    <header className={`header ${isMenuOpen ? 'header__menu-open' : ''}`}>
+    <header className="header">
       <div
-        className="header__menu-btn"
+        className={`header__menu-btn ${isMenuOpen ? 'header__menu-btn--hide' : ''}`}
         onClick={onMenuOpen}>
+        <MenuBtn />
       </div>
 
+      <div className={`${isMenuOpen ? 'header__backdrop' : ''}`} onClick={onMenuClose}>
       <div className={`header__navigation navigation ${isMenuOpen ? 'navigation--open' : ''}`}>
           <div
             className="navigation__close-btn"
             onClick={onMenuClose}>
+            <CloseBtn />
           </div>
 
           <ul className="navigation__list">
@@ -39,7 +49,8 @@ const Navigation = () => {
                   smooth={true}
                   spy={true}
                   activeClass="navigation__link--active"
-                  offset={-41}
+                  offset={ width > 1024 ? -41 : 0}
+                  onClick={onMenuClose}
                 >
                   <span className="navigation__link-text">{item}</span>
                   <span className="navigation__link-text navigation__link-text--active">
@@ -54,6 +65,7 @@ const Navigation = () => {
             <span>Ua |</span>
             <span className="language language--selected">Eng</span>
           </p>
+        </div>
       </div>
     </header>
   );

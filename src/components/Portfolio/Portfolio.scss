@@ -65,7 +65,7 @@
   min-height: 100vh;
   background-color: $greylight;
 
-  @media (max-width: $tablet) {
+  @media (max-width: $mobile) {
     min-height: auto;
   }
 
@@ -77,10 +77,6 @@
     max-width: 940px;
     margin: 0 auto;
     padding: 80px 50px;
-
-    @media (max-width: $tablet) {
-      padding: 50px;
-    }
 
     @media (max-width: $mobile) {
       padding: 50px 20px;
