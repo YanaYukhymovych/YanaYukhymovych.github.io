@@ -47,9 +47,9 @@ const Portfolio = () => {
                 />
               </a>
 
-              <p className="portfolio__description">
+              <div className="portfolio__description">
                 {item.description}
-                <p className="portfolio__stack">
+                <div className="portfolio__stack">
                   {item.stack.map((tech, index) => {
                     return (
                       <div className="stack__tech" key={index}>
@@ -57,8 +57,8 @@ const Portfolio = () => {
                       </div>
                     );
                   })}
-                </p>
-              </p>
+                </div>
+              </div>
             </div>
           );
         })}

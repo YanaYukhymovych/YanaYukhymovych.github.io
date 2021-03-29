@@ -17,17 +17,6 @@ function App() {
     contacts: <Contacts />,
   };
 
-  // useEffect(() => {
-  //   Events.scrollEvent.register('begin', function (arg1, arg2) {
-  //
-  //     console.log("begin", arg2);
-  //   });
-  //
-  //   Events.scrollEvent.register('end', function () {
-  //     console.log("end", arguments);
-  //   });
-  // })
-
   return (
     <div className="App">
       <Navigation />

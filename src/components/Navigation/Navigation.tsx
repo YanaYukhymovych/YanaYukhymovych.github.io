@@ -7,52 +7,54 @@ const Navigation = () => {
 
   const onMenuOpen = () => {
     setIsMenuOpen(true);
-  }
+  };
 
   const onMenuClose = () => {
     setIsMenuOpen(false);
-  }
+  };
 
   console.log(isMenuOpen);
 
   const navLinks = ['home', 'about', 'skills', 'portfolio', 'contacts'];
 
   return (
-    // <header className="header header--open">
-    // <header className={['header', isMenuOpen ? 'header--open' : ''].join(' ')}>
-    // <header className={`header ${isMenuOpen ? 'header--open' : ''}`}>
-      <header className="header">
+    <header className={`header ${isMenuOpen ? 'header__menu-open' : ''}`}>
+      <div
+        className="header__menu-btn"
+        onClick={onMenuOpen}>
+      </div>
 
-      <nav className="header__navigation navigation">
-        <div className="navigation__button navigation__button--open"  onClick={onMenuOpen}> </div>
+      <div className={`header__navigation navigation ${isMenuOpen ? 'navigation--open' : ''}`}>
+          <div
+            className="navigation__close-btn"
+            onClick={onMenuClose}>
+          </div>
 
-        <div className="navigation__button navigation__button--close" onClick={onMenuClose}> </div>
+          <ul className="navigation__list">
+            {navLinks.map((item, index) => (
+              <li key={index}>
+                <Link
+                  className="navigation__link"
+                  to={item}
+                  smooth={true}
+                  spy={true}
+                  activeClass="navigation__link--active"
+                  offset={-41}
+                >
+                  <span className="navigation__link-text">{item}</span>
+                  <span className="navigation__link-text navigation__link-text--active">
+                    {item}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        <ul className="navigation__list">
-          {navLinks.map((item, index) => (
-            <li key={index}>
-              <Link
-                className="navigation__link"
-                to={item}
-                smooth={true}
-                spy={true}
-                activeClass="navigation__link--active"
-                offset={-41}
-              >
-                <span className="navigation__link-text">{item}</span>
-                <span className="navigation__link-text navigation__link-text--active">
-                  {item}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <p className="navigation__language language">
-          <span>Ua |</span>
-          <span className="language language--selected">Eng</span>
-        </p>
-      </nav>
+          <p className="navigation__language language">
+            <span>Ua |</span>
+            <span className="language language--selected">Eng</span>
+          </p>
+      </div>
     </header>
   );
 };
