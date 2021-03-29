@@ -45,7 +45,11 @@ const Contacts = () => {
           You are welcome!
         </p>
 
-        <form className="contacts__form form">
+        <form
+          className="contacts__form form"
+          action="https://formspree.io/f/xayawkvp"
+          method="POST"
+        >
           <input
             className="form__input form__user"
             type="text"
@@ -70,28 +74,28 @@ const Contacts = () => {
           <input className="form__button" type="submit" value="Send message" />
         </form>
 
-          <div className="contacts__social social">
-            {socials.map((item, index) => (
-              <a className="social__link" href={item.link} key={index}>
-                {cloneElement(item.icon, {
-                  width: 40,
-                  height: 40,
-                  className: 'svg__empty',
-                })}
-                {cloneElement(item.iconFilled, {
-                  width: 40,
-                  height: 40,
-                  className: 'svg__fill',
-                })}
-              </a>
-            ))}
-          </div>
+        <div className="contacts__social social">
+          {socials.map((item, index) => (
+            <a className="social__link" href={item.link} key={index}>
+              {cloneElement(item.icon, {
+                width: 40,
+                height: 40,
+                className: 'svg__empty',
+              })}
+              {cloneElement(item.iconFilled, {
+                width: 40,
+                height: 40,
+                className: 'svg__fill',
+              })}
+            </a>
+          ))}
+        </div>
 
-          <p className="contacts__notes">
-            Find me on social
-            <br />
-            Yana Yukhymovych @2021
-          </p>
+        <p className="contacts__notes">
+          Find me on social
+          <br />
+          Yana Yukhymovych @2021
+        </p>
       </div>
     </div>
   );

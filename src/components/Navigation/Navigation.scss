@@ -63,19 +63,22 @@
 
 .header__backdrop {
   position: absolute;
-  top:0;
   left: 0;
+  top: 0;
+  bottom: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(130, 130, 130, 0.3);
-  z-index: -1;
 }
 
 .navigation {
   position: relative;
 
+  .navigation__close-btn {
+    display: none;
+  }
+
   @media (max-width: $tablet) {
-    padding: 20px 0 0 40px;
     transform: translateX(-40vw);
     transition: transform 0.1s ease-out;
     justify-content: flex-start;
@@ -119,6 +122,7 @@
       position: relative;
       justify-content: flex-start;
       flex-direction: column;
+      padding: 20px 0 0 40px;
       background: white;
     }
 
@@ -203,8 +207,8 @@
 
   .navigation__language {
     position: absolute;
-    bottom: -230px;
-    right: -30px;
+    bottom: -215px;
+    right: -55px;
   }
 
   &.navigation--open {

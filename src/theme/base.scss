@@ -2,10 +2,7 @@
  * @section Base Styles
  */
 
-
-//@include sizing('font-size', (320px: 30px, 699px: 40px, 1920px: 48px));
-
-
+@import "./normalize";
 @import "./variables";
 @import "./mixins";
 
@@ -33,6 +30,7 @@ h2 {
   @include sizing('font-size', (320px: 28px, 699px: 34px));
 }
 
+div,
 p,
 a,
 span {
