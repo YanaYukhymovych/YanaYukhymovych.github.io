@@ -10,10 +10,6 @@
   min-height: 100vh;
   background-color: $greylight;
 
-  @media (max-width: $mobile) {
-    min-height: auto;
-  }
-
   .about__wrapper {
     display: flex;
     flex-direction: column;
@@ -21,14 +17,14 @@
     align-content: center;
     max-width: 940px;
     margin: 0 auto;
-    padding: 50px;
+    padding: 120px 50px 50px 50px;
 
     @media (max-width: $tablet) {
-      padding: 30px;
+      padding: 100px 30px 30px 30px;
     }
 
     @media (max-width: $mobile) {
-      padding: 50px 20px;
+      padding: 60px 20px 20px 20px;
     }
 
     .about__title {
@@ -141,8 +137,8 @@
     width: 215px;
 
     @media (max-width: $tablet) {
-      padding: 30px;
-      width: calc((100% / 2) - 60px);
+      padding: 2vh;
+      width: calc((100% / 2) - 2vh);
     }
 
     @media (max-width: $mobile) {

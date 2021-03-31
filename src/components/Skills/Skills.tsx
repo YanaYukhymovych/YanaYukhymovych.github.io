@@ -1,5 +1,6 @@
-import React, { cloneElement } from 'react';
+import React, {cloneElement, useContext} from 'react';
 import './Skills.scss';
+import { SkillsContext } from '../../App';
 import {
   CssIcon,
   Git,
@@ -10,11 +11,11 @@ import {
   ScssIcon,
 } from '../../assets';
 
-type Props = {
-  extendSkills?: boolean;
-};
 
-const Skills = (props: Props) => {
+const Skills = () => {
+
+  const { skillsExtended } = useContext(SkillsContext);
+
   const skillsProgress = [
     {
       title: 'HTML',
@@ -71,7 +72,7 @@ const Skills = (props: Props) => {
                   <span className="item__title">{item.title}</span>
                   <div className="item__progress">
                     <div
-                      className={!props.extendSkills ? 'progress__fill' : `progress__fill${item.progressBar}`}
+                      className={skillsExtended ? `progress__fill progress__fill${item.progressBar}` : 'progress__fill'}
                     > </div>
                   </div>
                 </div>

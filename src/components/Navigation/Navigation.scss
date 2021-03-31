@@ -16,7 +16,7 @@
   }
 
   @media (max-width: $mobile) {
-    height: 50px;
+    height: 40px;
   }
 
   .header__navigation {
@@ -50,9 +50,12 @@
     }
 
     @media (max-width: $mobile) {
-      height: 30px;
-      top: 10px;
-      left: 15px;
+      top: 8px;
+      left: 0;
+
+      svg {
+        height: 25px;
+      }
     }
 
     &.header__menu-btn--hide {
@@ -124,6 +127,10 @@
       flex-direction: column;
       padding: 20px 0 0 40px;
       background: white;
+    }
+
+    @media (max-width: $mobile) {
+      padding: 0;
     }
 
     li {
@@ -224,7 +231,7 @@
       }
 
       .navigation__language {
-        bottom: 100px;
+        bottom: 200px;
         right: -20px;
       }
     }

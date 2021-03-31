@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import './Navigation.scss';
 import { Link } from 'react-scroll';
-import { useWindowDimensions } from '../../utils';
 import { MenuBtn, CloseBtn } from '../../assets';
+import { SkillsContext } from '../../App';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const { width } = useWindowDimensions();
+  const { handleSkillsActive } = useContext(SkillsContext);
+
 
   const onMenuOpen = () => {
     setIsMenuOpen(true);
@@ -17,12 +18,6 @@ const Navigation = () => {
   };
 
   const navLinks = ['home', 'about', 'skills', 'portfolio', 'contacts'];
-
-  useEffect(() => {
-    if (width > 1024 && isMenuOpen) {
-      setIsMenuOpen(false);
-    }
-  }, [width, isMenuOpen]);
 
   return (
     <header className="header">
@@ -67,8 +62,8 @@ const Navigation = () => {
                 smooth={true}
                 spy={true}
                 activeClass="navigation__link--active"
-                offset={width > 1024 ? -41 : 0}
                 onClick={onMenuClose}
+                onSetActive={item === 'skills' ? handleSkillsActive : undefined}
               >
                 <span className="navigation__link-text">{item}</span>
                 <span className="navigation__link-text navigation__link-text--active">

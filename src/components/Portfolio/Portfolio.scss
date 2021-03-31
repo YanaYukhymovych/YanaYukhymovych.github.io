@@ -65,9 +65,6 @@
   min-height: 100vh;
   background-color: $greylight;
 
-  @media (max-width: $mobile) {
-    min-height: auto;
-  }
 
   .portfolio__wrapper {
     display: flex;
@@ -76,10 +73,14 @@
     width: 100%;
     max-width: 940px;
     margin: 0 auto;
-    padding: 80px 50px;
+    padding: 120px 50px;
+
+    @media (max-width: $tablet) {
+      padding: 100px 30px;
+    }
 
     @media (max-width: $mobile) {
-      padding: 50px 20px;
+      padding: 60px 20px;
     }
 
     .portfolio__item {

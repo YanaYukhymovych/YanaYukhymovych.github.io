@@ -94,7 +94,7 @@ const Contacts = () => {
         <p className="contacts__notes">
           Find me on social
           <br />
-          Yana Yukhymovych @2021
+          © 2021 Yana Yukhymovych
         </p>
       </div>
     </div>
