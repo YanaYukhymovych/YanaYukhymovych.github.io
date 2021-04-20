@@ -5,7 +5,6 @@
   display: flex;
   justify-content: center;
   align-content: center;
-
   width: 100%;
   min-height: 100vh;
   background-color: $greylight;
@@ -74,15 +73,16 @@
       }
 
       .link {
-        text-decoration: none;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 16px;
-        width: 150px;
+        min-width: 150px;
         height: 30px;
         border: 2px solid $grey;
+        border-radius: 16px;
+        padding: 5px 10px;
         margin-left: 20px;
+        text-decoration: none;
 
         @media (max-width: $mobile) {
           margin-top: 15px;
@@ -93,7 +93,7 @@
         &:focus,
         &:active {
           background-color: $black;
-          border: $black;
+          border: 2px solid $black;
           color: $greylight;
         }
       }
@@ -133,34 +133,33 @@
     flex-direction: column;
     flex-shrink: 0;
     align-items: center;
-    padding: 10px;
     width: 215px;
+    padding: 10px;
 
     @media (max-width: $tablet) {
-      padding: 2vh;
       width: calc((100% / 2) - 2vh);
+      padding: 2vh;
     }
 
     @media (max-width: $mobile) {
       flex-direction: row;
-      width: 100%;
-      box-sizing: border-box;
       justify-content: center;
+      box-sizing: border-box;
+      width: 100%;
       padding: 0;
     }
 
     &::after {
       content: '';
-      display: flex;
       position: absolute;
-      width: 140px;
-      height: 158px;
       top: -28px;
       left: 48px;
-      background-size: cover;
-      opacity: 0.3;
-
       z-index: 1;
+      display: flex;
+      background-size: cover;
+      width: 140px;
+      height: 158px;
+      opacity: 0.3;
 
       @media (max-width: $tablet) {
         display: none;
@@ -168,14 +167,14 @@
     }
 
     .features__img {
-      z-index: 2;
       position: relative;
+      z-index: 2;
     }
 
     .features__title {
+      z-index: 2;
       margin-top: 20px;
       font-weight: 700;
-      z-index: 2;
 
       @media (max-width: $mobile) {
         display: none;
@@ -183,10 +182,10 @@
     }
 
     .features__text {
-      text-align: center;
+      z-index: 2;
       margin-top: 30px;
       color: $grey;
-      z-index: 2;
+      text-align: center;
 
       @media (max-width: $tablet) {
         margin-top: 20px;

@@ -2,9 +2,9 @@
 @import '../../theme/mixins';
 
 .intro {
-  margin: 0;
   width: 100%;
   height: 100vh;
+  margin: 0;
   background-color: white;
 
 
@@ -26,7 +26,7 @@
       flex-direction: column;
       flex-grow: 1;
       justify-content: center;
-      padding: 150px 0 60px 0;
+      padding: 150px 0 0 0;
       @include font(50px, 700, $black);
       @include sizing(
         'font-size',
@@ -38,8 +38,8 @@
       );
 
       @media (max-width: $tablet) {
-        text-align: right;
         padding: 100px 20px 50px 0;
+        text-align: right;
       }
 
       @media (max-width: $mobile) {
@@ -47,8 +47,8 @@
       }
 
       .intro__description {
-        font-weight: normal;
         margin-top: 20px;
+        font-weight: normal;
         text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
         @media (max-width: $tablet) {
@@ -58,8 +58,8 @@
         }
 
         @media (max-width: $mobile) {
-          font-size: 18px;
           margin-top: 10px;
+          font-size: 18px;
         }
       }
     }

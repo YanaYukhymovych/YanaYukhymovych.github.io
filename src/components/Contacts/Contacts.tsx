@@ -10,8 +10,11 @@ import {
   LinkedinFill,
   Linkedin,
 } from '../../assets';
+import {useTranslation} from "react-i18next";
 
 const Contacts = () => {
+  const { t } = useTranslation();
+
   const socials = [
     {
       link: 'https://t.me/y_yukhymovych',
@@ -43,11 +46,11 @@ const Contacts = () => {
   return (
     <div className="contacts">
       <div className="contacts__wrapper">
-        <h2 className="contacts__title"> Contacts </h2>
+        <h2 className="contacts__title"> {t('contacts.title')} </h2>
         <p className="contacts__text">
-          Want to know more or just chat?
+          {t('contacts.description.1')}
           <br />
-          You are welcome!
+          {t('contacts.description.2')}
         </p>
 
         <form
@@ -59,24 +62,24 @@ const Contacts = () => {
             className="form__input form__user"
             type="text"
             name="user"
-            placeholder="Name"
+            placeholder={t('contacts.placeholder.name')}
           />
           <div className="form__input--border" />
           <input
             className="form__input  form__email"
             type="text"
             name="email"
-            placeholder="Email"
+            placeholder={t('contacts.placeholder.email')}
           />
           <div className="form__input--border" />
           <textarea
             className="form__input form__message"
             rows={4}
             name="message"
-            placeholder="Your massage"
+            placeholder={t('contacts.placeholder.message')}
           />
           <div className="form__input--border" />
-          <input className="form__button" type="submit" value="Send message" />
+          <input className="form__button" type="submit" value={t('contacts.button').toString()} />
         </form>
 
         <div className="contacts__social social">
@@ -97,9 +100,9 @@ const Contacts = () => {
         </div>
 
         <p className="contacts__notes">
-          Find me on social
+          {t('contacts.notes.1')}
           <br />
-          © 2021 Yana Yukhymovych
+          {t('contacts.notes.2')}
         </p>
       </div>
     </div>

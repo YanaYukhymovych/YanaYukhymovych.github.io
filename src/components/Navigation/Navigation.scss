@@ -1,11 +1,12 @@
 @import '../../theme/variables';
 @import '../../theme/mixins';
 
+
 .header {
   position: fixed;
+  z-index: 3;
   width: 100%;
   background: white;
-  z-index: 3;
 
   @media (max-width: $tablet) {
     max-width: 100%;
@@ -38,10 +39,10 @@
   }
 
   .header__menu-btn {
-    display: none;
     position: absolute;
     top: 15px;
     left: 20px;
+    display: none;
     height: 35px;
     width: 50px;
 
@@ -82,34 +83,34 @@
   }
 
   @media (max-width: $tablet) {
-    transform: translateX(-40vw);
-    transition: transform 0.1s ease-out;
     justify-content: flex-start;
     height: 100vh;
+    transform: translateX(-40vw);
+    transition: transform 0.1s ease-out;
 
     .navigation__close-btn {
-      display: flex;
       position: absolute;
       top: 37px;
       right: 15px;
+      z-index: 3;
+      display: flex;
       width: 25px;
       height: 30px;
-      z-index: 3;
     }
   }
 
   @media (max-width: $mobile) {
-    transform: translateX(-70vw);
     padding: 0 0 0 20px;
+    transform: translateX(-70vw);
 
     .navigation__close-btn {
-      display: flex;
       position: absolute;
       top: 12px;
       right: 10px;
+      z-index:3;
+      display: flex;
       width: 15px;
       height: 30px;
-      z-index:3;
     }
   }
 
@@ -117,14 +118,15 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    list-style: none;
     padding: 0;
     margin: 0;
+    list-style: none;
+
 
     @media (max-width: $tablet) {
       position: relative;
-      justify-content: flex-start;
       flex-direction: column;
+      justify-content: flex-start;
       padding: 20px 0 0 40px;
       background: white;
     }
@@ -146,15 +148,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 30px 0;
         text-transform: capitalize;
         text-decoration: none;
-        padding: 30px 0;
         cursor: pointer;
 
         @media (max-width: $tablet) {
           justify-content: flex-start;
-          padding: 20px 0;
           width: 100%;
+          padding: 20px 0;
         }
 
 
@@ -182,8 +184,9 @@
       }
 
       .navigation__link-text {
-        color: $grey;
         visibility: initial;
+        color: $grey;
+        text-transform: none;
 
         @media (max-width: $tablet) {
           font-size: 24px;
@@ -195,8 +198,8 @@
       }
 
       .navigation__link-text--active {
-        visibility: hidden;
         position: absolute;
+        visibility: hidden;
         color: $black;
         font-weight: 700;
         white-space: nowrap;
@@ -215,7 +218,7 @@
   .navigation__language {
     position: absolute;
     bottom: -215px;
-    right: -55px;
+    right: -70px;
   }
 
   &.navigation--open {
@@ -223,7 +226,7 @@
 
     @media (max-width: $tablet) {
       display: flex;
-      //transform: translate(0, 60px);
+
       transform: translate(0, 0);
 
       .navigation__list {
@@ -233,6 +236,7 @@
       .navigation__language {
         bottom: 200px;
         right: -20px;
+        transform: rotate(-90deg);
       }
     }
   }
@@ -241,22 +245,32 @@
 
 .language {
   display: flex;
-  transform: rotate(-90deg);
   margin: 0;
   padding: 0;
+  transform: rotate(-90deg);
+
+  .language__divider {
+    display: flex;
+    width: 1px;
+    margin: 0 5px;
+    background-color: black;
+  }
 
   span {
-    text-transform: uppercase;
-    line-height: 18px;
-    vertical-align: bottom;
-    text-align: center;
+    width: 50px;
     margin: 0;
+    color: $grey;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: bottom;
+    line-height: 18px;
+    cursor: pointer;
+
 
     &.language--selected {
-      font-weight: 700;
       margin: 0;
-      padding-left: 5px;
-      transform: rotate(0deg);
+      color: $black;
+      font-weight: 700;
     }
   }
 }

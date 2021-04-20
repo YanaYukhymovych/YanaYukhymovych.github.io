@@ -3,40 +3,40 @@
 
 @keyframes link-arrow {
   0% {
-    display: none;
     right: 30px;
+    display: none;
     opacity: 0;
   }
 
   50% {
+    right: 5px;
     display: flex;
     opacity: 0.5;
-    right: 5px;
   }
 
   100% {
-    opacity: 1;
     right: 20px;
+    opacity: 1;
   }
 }
 
 @keyframes link-arrow-tablet {
   0% {
-    display: none;
     right: 30px;
+    display: none;
     opacity: 0;
   }
 
   10% {
+    right: 5px;
     display: flex;
     opacity: 0.5;
-    right: 5px;
   }
 
   20%,
   100% {
-    opacity: 1;
     right: 20px;
+    opacity: 1;
   }
 }
 
@@ -105,9 +105,9 @@
       }
 
       .portfolio__link {
+        position: relative;
         width: calc((100% / 2) - 20px);
         max-width: 395px;
-        position: relative;
 
         @media (max-width: $tablet) {
           width: 100%;
@@ -130,13 +130,13 @@
         }
 
         .portfolio__arrow {
-          display: none;
-          width: 50px;
-          height: 40px;
           position: absolute;
           bottom: 20px;
           right: 20px;
           z-index: 1;
+          display: none;
+          width: 50px;
+          height: 40px;
           transition: right 0.3s;
 
           animation-name: link-arrow;
@@ -179,8 +179,8 @@
         }
 
         @media (max-width: $mobile) {
-          margin-top: 30px;
           max-width: 470px;
+          margin-top: 30px;
         }
 
         .portfolio__arrow {
@@ -193,9 +193,9 @@
       .portfolio__description {
         width: calc((100% / 2) - 20px);
         max-width: 395px;
-        text-align: justify;
-        color: $grey;
         margin: 0;
+        color: $grey;
+        text-align: justify;
 
         @media (max-width: $tablet) {
           width: 100%;

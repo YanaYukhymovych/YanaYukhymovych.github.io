@@ -3,11 +3,15 @@ import './Navigation.scss';
 import { Link } from 'react-scroll';
 import { MenuBtn, CloseBtn } from '../../assets';
 import { SkillsContext } from '../../App';
+import { useTranslation } from 'react-i18next';
 
 const Navigation = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const { t, i18n } = useTranslation();
   const { handleSkillsActive } = useContext(SkillsContext);
 
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [locale, setLocale] = useState<boolean>(false);
+  
 
   const onMenuOpen = () => {
     setIsMenuOpen(true);
@@ -17,7 +21,23 @@ const Navigation = () => {
     setIsMenuOpen(false);
   };
 
-  const navLinks = ['home', 'about', 'skills', 'portfolio', 'contacts'];
+  const navLinks = {
+    home: t('navigation.home'),
+    about: t('navigation.about'),
+    skills: t('skills.title'),
+    portfolio: t('portfolio.title'),
+    contacts: t('contacts.title'),
+  };
+
+  const changeLanguageUk = () => {
+    i18n.changeLanguage('uk');
+    setLocale(true)
+  }
+
+  const changeLanguageEn = () => {
+    i18n.changeLanguage('en');
+    setLocale(false)
+  }
 
   return (
     <header className="header">
@@ -54,20 +74,20 @@ const Navigation = () => {
         </div>
 
         <ul className="navigation__list">
-          {navLinks.map((item, index) => (
+          {Object.keys(navLinks).map((key, index) => (
             <li key={index}>
               <Link
                 className="navigation__link"
-                to={item}
+                to={key}
                 smooth={true}
                 spy={true}
                 activeClass="navigation__link--active"
                 onClick={onMenuClose}
-                onSetActive={item === 'skills' ? handleSkillsActive : undefined}
+                onSetActive={key === 'skills' ? handleSkillsActive : undefined}
               >
-                <span className="navigation__link-text">{item}</span>
+                <span className="navigation__link-text">{navLinks[key]}</span>
                 <span className="navigation__link-text navigation__link-text--active">
-                  {item}
+                  {navLinks[key]}
                 </span>
               </Link>
             </li>
@@ -75,8 +95,21 @@ const Navigation = () => {
         </ul>
 
         <p className="navigation__language language">
-          <span>Ua |</span>
-          <span className="language language--selected">Eng</span>
+          <span
+            onClick={changeLanguageUk}
+            className={locale ? 'language--selected': ''}
+          >
+            Укр
+          </span>
+
+          <div className="language__divider"> </div>
+
+          <span
+            onClick={changeLanguageEn}
+            className={locale ? '' : 'language--selected'}
+          >
+            Eng
+          </span>
         </p>
       </div>
     </header>

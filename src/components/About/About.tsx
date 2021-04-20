@@ -1,42 +1,43 @@
 import React, { cloneElement } from 'react';
 import './About.scss';
 import { Fast, IdeaIcon, TabletIcon, SpeedIcon } from '../../assets';
+import { useTranslation } from 'react-i18next';
+
 
 const About = () => {
+  const { t } = useTranslation();
+
   const features = [
     {
       icon: <Fast />,
-      title: 'Fast',
-      description:
-        'Fast load times and lag free interaction, my highest priority.',
+      title: t('about.features.title.fast'),
+      description: t('about.features.description.fast'),
     },
     {
       icon: <TabletIcon />,
-      title: 'Responsive',
-      description: 'My layouts will work on any device, big or small.',
+      title: t('about.features.title.responsive'),
+      description: t('about.features.description.responsive'),
     },
     {
       icon: <IdeaIcon />,
-      title: 'Intuitive',
-      description: 'Strong preference for easy to use, intuitive UX/UI.',
+      title: t('about.features.title.intuitive'),
+      description: t('about.features.description.intuitive'),
     },
     {
       icon: <SpeedIcon />,
-      title: 'Dynamic',
-      description: "Websites don't have to be static, I love making pages come to life.",
+      title: t('about.features.title.dynamic'),
+      description: t('about.features.description.dynamic'),
     },
   ];
 
   return (
     <section className="about" id="about">
       <div className="about__wrapper">
-        <h2 className="about__title">Who am I?</h2>
+        <h2 className="about__title">{t('about.title')}</h2>
 
         <p className="about__text">
-          Hi, I'm Yana - Front-End Developer from Kyiv, Ukraine.
-          <span className="mobile__hidden">
-            &nbsp;I have serious passion for UI design and creating intuitive,
-            dynamic user experiences.
+          {t('about.introducing1')}
+          <span className="mobile__hidden">{t('about.introducing2')}
           </span>
         </p>
 
@@ -59,9 +60,9 @@ const About = () => {
         </div>
 
         <a className="about__link" href="Yukhymovych Yana CV.pdf" download>
-          Let's make something special
+          {t('about.download link')}
           <div className="link">
-            download CV
+            {t('about.download')}
           </div>
         </a>
       </div>

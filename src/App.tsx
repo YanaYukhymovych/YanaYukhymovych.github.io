@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import './theme/base.scss';
 import { Element } from 'react-scroll';
 import Navigation from './components/Navigation/Navigation';
@@ -7,6 +7,7 @@ import About from './components/About/About';
 import Portfolio from './components/Portfolio/Portfolio';
 import Skills from './components/Skills/Skills';
 import Contacts from './components/Contacts/Contacts';
+
 
 export const SkillsContext = React.createContext({
   skillsExtended: false,
@@ -29,17 +30,19 @@ function App() {
   };
 
   return (
-    <SkillsContext.Provider value={{ skillsExtended, handleSkillsActive }}>
-      <div className="App">
-        <Navigation />
+    <Suspense fallback="loading">
+      <SkillsContext.Provider value={{ skillsExtended, handleSkillsActive }}>
+        <div className="App">
+          <Navigation />
 
-        {Object.keys(sections).map((section, index) => (
-          <Element key={index} name={section}>
-            {sections[section]}
-          </Element>
-        ))}
-      </div>
-    </SkillsContext.Provider>
+          {Object.keys(sections).map((section, index) => (
+            <Element key={index} name={section}>
+              {sections[section]}
+            </Element>
+          ))}
+        </div>
+      </SkillsContext.Provider>
+    </Suspense>
   );
 }
 

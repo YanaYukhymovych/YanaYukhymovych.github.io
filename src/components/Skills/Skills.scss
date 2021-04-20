@@ -10,12 +10,12 @@
 
 
   .skills__wrapper {
-    max-width: 940px;
-    min-width: 767px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 940px;
+    min-width: 767px;
     margin: 0 auto;
     padding: 120px 50px 50px 50px;
 
@@ -24,8 +24,8 @@
     }
 
     @media (max-width: $mobile) {
-      padding: 60px 20px 20px 20px;
       min-width: 320px;
+      padding: 60px 20px 20px 20px;
     }
 
     .skills__title {
@@ -52,8 +52,6 @@
   .progress__item {
     display: flex;
     margin-bottom: 25px;
-
-
   }
 }
 
@@ -76,8 +74,8 @@
       text-transform: capitalize;
 
       @media (max-width: $mobile) {
-        font-size: 14px;
         width: 110px;
+        font-size: 14px;
       }
     }
 
@@ -86,21 +84,21 @@
       display: flex;
       width: 100%;
       height: 5px;
-      background: $greylight;
       margin: 4px 0;
       border-radius: 25px;
+      background: $greylight;
 
       .progress__fill {
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 2;
         display: flex;
         width: 0;
         height: 4px;
-        background: $black;
         border-radius: 25px;
+        background: $black;
         transition: width 1s linear;
-        z-index: 2;
 
         &--html {
           width: 95%;

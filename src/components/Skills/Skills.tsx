@@ -10,10 +10,11 @@ import {
   ReduxIcon,
   ScssIcon,
 } from '../../assets';
+import {useTranslation} from "react-i18next";
 
 
 const Skills = () => {
-
+  const { t } = useTranslation();
   const { skillsExtended } = useContext(SkillsContext);
 
   const skillsProgress = [
@@ -38,7 +39,7 @@ const Skills = () => {
       icon: <JsIcon />,
     },
     {
-      title: 'React',
+      title: 'ReactJs',
       progressBar: '--react',
       icon: <ReactIcon />,
     },
@@ -57,7 +58,7 @@ const Skills = () => {
   return (
     <section className="skills" id="skills">
       <div className="skills__wrapper">
-        <h2 className="skills__title">Skills</h2>
+        <h2 className="skills__title">{t('skills.title')}</h2>
 
         <div className="skills__progress progress">
           {skillsProgress.map((item, index) => {
@@ -72,8 +73,14 @@ const Skills = () => {
                   <span className="item__title">{item.title}</span>
                   <div className="item__progress">
                     <div
-                      className={skillsExtended ? `progress__fill progress__fill${item.progressBar}` : 'progress__fill'}
-                    > </div>
+                      className={
+                        skillsExtended
+                          ? `progress__fill progress__fill${item.progressBar}`
+                          : 'progress__fill'
+                      }
+                    >
+                      {' '}
+                    </div>
                   </div>
                 </div>
               </div>

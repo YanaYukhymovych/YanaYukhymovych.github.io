@@ -4,27 +4,27 @@ import { Arrow } from '../../assets';
 import Borodinskiy from '../../assets/img/borodinski.png';
 import Pink from '../../assets/img/pink-white.png';
 import TodoList from '../../assets/img/Todo.png';
+import {useTranslation} from "react-i18next";
 
 const Portfolio = () => {
+  const { t } = useTranslation();
+
   const PortfolioItem = [
     {
       icon: TodoList,
-      description:
-        'Web application for creating and organised a tasks that you want to do.',
+      description: t('portfolio.description.todo'),
       link: 'https://yanayukhymovych.github.io/react-learning-todo/',
       stack: ['React', 'Redux', 'React Router', 'SСSS'],
     },
     {
       icon: Pink,
-      description:
-        'Creating website for photo processing application. Making cross-platforms layout using Scss, implementing JS-slider.',
+      description:  t('portfolio.description.pink'),
       link: 'https://yanayukhymovych.github.io/Pink',
       stack: ['JavaScript', 'HTML', 'SCSS'],
     },
     {
       icon: Borodinskiy,
-      description:
-        'Making a layout of multi-pages online-shop. Implementing sign up form.',
+      description: t('portfolio.description.borodinskiy'),
       link: 'https://yanayukhymovych.github.io/barbershop-borodinski',
       stack: ['JavaScript', 'HTML', 'SCSS'],
     },
@@ -33,7 +33,7 @@ const Portfolio = () => {
   return (
     <section className="portfolio" id="portfolio">
       <div className="portfolio__wrapper">
-        <h2 className="portfolio__title">Portfolio</h2>
+        <h2 className="portfolio__title">{t('portfolio.title')}</h2>
         {PortfolioItem.map((item, index) => {
           return (
             <div className="portfolio__item" key={index}>
