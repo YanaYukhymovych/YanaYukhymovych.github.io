@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import './Navigation.scss';
 import { Link } from 'react-scroll';
 import { MenuBtn, CloseBtn } from '../../assets';
@@ -21,6 +21,14 @@ const Navigation = () => {
     setIsMenuOpen(false);
   };
 
+  useEffect(() => {
+    if (isMenuOpen){
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMenuOpen])
+
   const navLinks = {
     home: t('navigation.home'),
     about: t('navigation.about'),
@@ -32,11 +40,13 @@ const Navigation = () => {
   const changeLanguageUk = () => {
     i18n.changeLanguage('uk');
     setLocale(true)
+    setIsMenuOpen(false);
   }
 
   const changeLanguageEn = () => {
     i18n.changeLanguage('en');
-    setLocale(false)
+    setLocale(false);
+    setIsMenuOpen(false);
   }
 
   return (
